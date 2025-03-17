@@ -1,34 +1,40 @@
+import { div } from 'framer-motion/client'
+import React from 'react'
+import Search from './components/Search'
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { motion } from 'framer-motion'
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+  const [searchTerm, setSearchTerm] = useState('');
+
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <main className="h-screen bg-[url('/public/BG.png')] bg-cover bg-center">
+      < div  className='pattern'/>
+
+      <div className='wrapper'>
+          <header>
+            <motion.img 
+            src="./hero.png" alt="herobanner" 
+            className="transition-transform hover:scale-120 duration-1000 hover:ease-out"
+            initial={{ scale:0.8}}
+            whileInView={{ scale:1.0}}
+            transition={{ duration:1,
+              delay:0.01, ease:"easeInOut"}}
+            />
+            <h1 >Find <motion.span
+            viewport={{ once: true }}
+            initial={{fontSize:"100%"}}
+            whileInView={{fontSize:"120%"}}
+            transition={{ duration:1,delay:0.1,ease:"anticipate"}}
+            whileHover={{color:"#EABDE6",duration:0.5,fontSize:"145%"}}
+            className="text-gradient"
+             >Movies</motion.span> you'll Enjoy without hassle</h1>
+          </header>
+
+          <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </main>
   )
 }
 
