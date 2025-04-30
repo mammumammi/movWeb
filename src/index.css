@@ -2,6 +2,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 
 @import "tailwindcss";
+@import "tailwindcss-animated";
+
 
 @theme {
   --color-primary: #030014;
@@ -76,7 +78,8 @@
       @apply w-[127px] h-[163px] rounded-lg object-cover -ml-3.5;
     }
   }
-
+  
+  
   .search {
     @apply w-full bg-light-100/5 px-4 py-3 rounded-lg mt-10 max-w-3xl mx-auto;
 
@@ -160,3 +163,5 @@
     display: none;
   }
 }
+
+
